@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model TechNews {
+  id            Int      @id @default(autoincrement())
+  articleId     Int //In case res doesn't have more than 10 news, so we can put unique constraint on this field
+  title         String
+  description   String
+  thumbnail_url String
+  url           String
+  saveAt        DateTime @default(now())
+}

@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  bot-db: 
+    image: postgres:16.2
+    container_name: bot-db
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: SLACK_BOT
+      POSTGRES_PASSWORD: SLACK_BOTPW
+      POSTGRES_DB: slackbot
+    networks:
+      - nestjs-network
+networks:
+  nestjs-network:

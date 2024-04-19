@@ -1,8 +1,8 @@
 import { Controller, Post, Req, Res } from '@nestjs/common';
 
-@Controller('slack/commands')
+@Controller('slack')
 export class SlackController {
-  @Post()
+  @Post('commands')
   async handleCommand(@Req() req, @Res() res) {
     const { text, user_id } = req.body;
     // Xử lý logic của command tại đây
